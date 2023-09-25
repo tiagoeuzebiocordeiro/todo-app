@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>TAREFAS FINALIZADAS</h1>
+    <div class="badge">
+        <button mat-stroked-button color="primary" routerLink="/">VOLTAR</button>
+    </div>
+
+
+    <div class="content" *ngFor="let item of tarefasFinalizadas">
+        <mat-card class="mat-elevation-z8" id="mat-card-principal">
+            <mat-card-header>
+              <mat-card-subtitle class="end_date">Data para finalizar: {{item.dataParaFinalizar}}</mat-card-subtitle>
+              <mat-card-title>{{item.titulo}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{item.descricao}}</p>
+            </mat-card-content>
+            <mat-card-footer>
+            </mat-card-footer>
+          </mat-card>
+          
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="badge">
+        <button mat-stroked-button color="primary" matBadge="{{closed}}" routerLink="/finalizados">QTD. DE TAREFAS FINALIZADAS</button>
+    </div>
+
+    <div *ngIf="todos.length === 0" class="semTarefas">
+        <p>SEM TAREFAS REGISTRADAS!</p>
+    </div>
+
+    <button mat-stroked-button color="primary" class="nova-tarefa mat-elevation-z8" routerLink="/create">NOVA TAREFA</button>
+
+    <div class="content" *ngFor="let item of todos">
+        <mat-card class="mat-elevation-z8" id="mat-card-principal">
+            <mat-card-header>
+              <mat-card-subtitle class="end_date">Data para finalizar: {{item.dataParaFinalizar}}</mat-card-subtitle>
+              <mat-card-title>{{item.titulo}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{item.descricao}}</p>
+            </mat-card-content>
+           <div class="actions">
+                <button (click)="finalizar(item)" mat-mini-fab color="primary">
+                    <mat-icon>done</mat-icon>
+                </button>
+                <button mat-mini-fab color="accent" routerLink="/update/{{item.id}}">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button (click)="delete(item.id)" mat-mini-fab color="warn">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+            <mat-card-footer>
+            </mat-card-footer>
+          </mat-card>
+          
+    </div>
+
+</div>
